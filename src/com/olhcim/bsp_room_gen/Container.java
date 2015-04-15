@@ -2,7 +2,6 @@
 package com.olhcim.bsp_room_gen;
 
 import java.awt.Color;
-import java.awt.Graphics2D;
 import java.util.Random;
 
 public class Container {
@@ -30,7 +29,6 @@ public class Container {
     public Container[] splitContainer(double ratio, Random r, boolean discard)
     {
         Container[] cs = new Container[2];
-//        double nr = ratio + r.nextDouble() * (1-2*ratio);
         double nr = r.nextDouble();
         boolean wSplit = r.nextBoolean();
         
@@ -53,26 +51,14 @@ public class Container {
         return cs;
     }
     
-    public void paint(Graphics2D g)
-    {
-        g.setColor(new Color(color.getRed(), color.getBlue(), color.getGreen(), 200));
-        g.fillRect(x, y, w, h);
-        
-        if(room != null)
-        {
-            g.setColor(Color.WHITE);
-            g.fillRect(room.x, room.y, room.w, room.h);
-        }
-    }
-    
     public void createSubRoom(Random r)
     {
-        double x = this.x + (r.nextDouble()*Math.floor(this.w / 3));
-        double y = this.y + (r.nextDouble()*Math.floor(this.h / 3));
+        double x = this.x + (r.nextDouble()*Math.floor(this.w / 5)) + 1;
+        double y = this.y + (r.nextDouble()*Math.floor(this.h / 5)) + 1;
         double w = this.w - (x - this.x);
         double h = this.h - (y - this.y);
-        w -= r.nextDouble()* (w / 3);
-        h -= r.nextDouble()* (w / 3);
+        w -= r.nextDouble() * (w / 7) + 1;
+        h -= r.nextDouble() * (w / 7) + 1;
         
         room = new Container((int)x,(int)y,(int)w,(int)h);
     }

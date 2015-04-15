@@ -12,24 +12,18 @@ public class Canvas extends JPanel
     private final BufferedImage image;
     private final double scale;
     
-    public Canvas(int width, int height, double scale) 
+    public Canvas(int w, int h, double scale) 
     {
-        image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+        image = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
         
-        width *= scale;
-        height *= scale;
+        w *= scale;
+        h *= scale;
+        this.scale = scale;
         
-        Dimension size = new Dimension(width, height);
+        Dimension size = new Dimension(w, h);
         this.setSize(size);
         this.setPreferredSize(size);
         this.setMinimumSize(size);
-        
-        this.scale = scale;
-    }
-    
-    public Canvas(int width, int height) 
-    {
-        this(width, height, 1);
     }
     
     @Override

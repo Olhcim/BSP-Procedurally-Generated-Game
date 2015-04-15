@@ -26,37 +26,6 @@ public class Node {
         right = null;
         this.data = data;
     }
-
-    
-    public void paint(Graphics2D g)
-    {
-        if (left == null && right == null)
-        {
-            data.paint(g);
-        } else {
-            if (left != null)
-            {
-                left.paint(g);
-            }
-            if (right != null)
-            {
-                right.paint(g);
-            }
-            if(left != null && right != null)
-            {
-                g.setColor(Color.WHITE);
-                int pathSize = (int)Math.ceil( Math.sqrt(Math.sqrt(data.area)) / 4 );
-                
-                
-                    int x = (int) (Math.min(left.data.center.x, right.data.center.x) - pathSize/2.0);
-                    int y = (int) (Math.min(left.data.center.y, right.data.center.y) - pathSize/2.0);
-                    int w = (int) Math.abs(left.data.center.x - right.data.center.x) + pathSize;
-                    int h = (int) Math.abs(left.data.center.y - right.data.center.y) + pathSize;
-                    
-                    g.fillRect(x,y,w,h);
-            }
-        }
-    }
     
     public Node splitNode(double ratio, Random r)
     {
