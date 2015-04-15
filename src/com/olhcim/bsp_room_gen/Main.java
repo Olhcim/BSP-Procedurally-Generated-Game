@@ -1,6 +1,7 @@
 
 package com.olhcim.bsp_room_gen;
 
+import com.olhcim.bsp_room_gen.frame.Frame;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
@@ -9,7 +10,7 @@ import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import java.util.Stack;
 
-public class BSPRoomGen {
+public class Main {
 
     public static final int W = 1600, H = 800, L = 20;
     public static final long seed = (long)(Math.random()*Long.MAX_VALUE);
@@ -103,7 +104,7 @@ public class BSPRoomGen {
                 Graphics2D g = frame.getCanvas().getImageGraphics();
                 g.setColor(new Color(128,128,128));
                 g.fillRect(0, 0, W, H);
-//                tree.node.paint(g);
+                tree.node.paint(g);
                 frame.getCanvas().repaint();
             }
         } );

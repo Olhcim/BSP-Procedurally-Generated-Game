@@ -1,5 +1,5 @@
 
-package com.olhcim.bsp_room_gen;
+package com.olhcim.bsp_room_gen.frame;
 
 import java.awt.Color;
 import javax.swing.JFrame;
